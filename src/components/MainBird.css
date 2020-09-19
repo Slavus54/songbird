@@ -1,0 +1,46 @@
+.container {
+    padding-top: 5%;
+}
+.register {
+    position: absolute;
+    margin-top: 2%;
+    margin-left: 34%;
+}
+.count {
+    position: absolute;
+    color: white;
+    margin-top: 6%;
+    margin-left: 77%
+}
+.verifed {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+    padding-bottom: 20%;
+    margin-left: 15%;
+}
+.form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.play-button {
+    width: 20px;
+}
+.bird {
+    position: relative;
+}
+.done {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    color: white;
+    border: 0.5px solid#007bff;
+    margin-left: 34%;
+}
+.done-img {
+    width: 100%;
+    max-height: 275px;
+}

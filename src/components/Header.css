@@ -1,0 +1,22 @@
+body {
+    background-color: black;
+}
+.bird-logo {
+    position: relative;
+    display: flex;
+    width: 180px;
+    left: 0;
+}
+.nav {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+.href {
+    color: white;
+    font-weight: 600;
+}
+.href:hover {
+    color: rgb(0, 151, 144)
+}

@@ -1,0 +1,13 @@
+.form-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: inherit;
+}
+.input-form {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+}
