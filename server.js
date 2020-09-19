@@ -9,12 +9,19 @@ const prefix = 'https://cors-anywhere.herokuapp.com/'
 
 let users = []
 
-app.use(favicon(__dirname + '/build/favicon.png')); 
-app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, 'build')));
+// app.use(favicon(__dirname + '/build/favicon.png')); 
+// app.use(express.static(__dirname));
+// app.use(express.static(path.join(__dirname, 'build')));
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, 'build')))
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    })
+}
   
 app.get('/czech', (req, res) => {
     let data = [
@@ -133,9 +140,5 @@ app.post('/signin', async (req, res) => {
         console.log(e)
     } 
 })
-
-app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
 
 app.listen(PORT, () => console.log(`Server has started at ${PORT} port`))
