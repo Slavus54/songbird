@@ -38,8 +38,8 @@
   },
   "scripts": {
     "client": "react-scripts start",
-    "server": "nodemon server.js",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
+    "dev": "concurrently \"npm run start\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

@@ -15,13 +15,15 @@ let users = []
 
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+
 if (process.env.NODE_ENV === 'production') {
-    
-app.use(express.static(path.join(__dirname, 'build')))
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
-})
-}
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'build')));
+    // Handle React routing, return all requests to React app
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
+  }
 
   
 app.get('/czech', (req, res) => {
