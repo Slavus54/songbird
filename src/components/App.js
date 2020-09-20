@@ -3,7 +3,6 @@ import './App.css'
 import axios from 'axios'
 import MainBird from './MainBird'
 import {Route} from 'react-router-dom'
-import {Button} from 'react-bootstrap'
 
 const App = React.memo(function App() {
   const [data1, setData1] = useState([])
@@ -22,10 +21,6 @@ const App = React.memo(function App() {
     const dt1 = await axios.get('/ocean-birds')
     setData3(dt1.data)
   }, [])
-  const onGet = async () => {
-    let dett = await axios.get('/czech')
-    console.log(dett.data)
-  }
   return (
     <div className="App">
       {data1 !== undefined && data2 !== undefined && data3 !== undefined ? 
@@ -35,7 +30,6 @@ const App = React.memo(function App() {
       <Route path='/ocean' component={() => <MainBird data={data3} />} exact/>
       </>
       : null}
-      <Button onClick={onGet}>GET API</Button>
     </div>
   );
 })

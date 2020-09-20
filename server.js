@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 4000
 const bodyParser = require('body-parser')
 const bcrypt = require('bcrypt')
 const prefix = 'https://cors-anywhere.herokuapp.com/'
+require('dotenv').config()
 
 let users = []
 
