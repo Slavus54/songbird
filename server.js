@@ -1,6 +1,7 @@
 const express = require('express') 
 const app = express()
-const path = require('path');
+const path = require('path')
+const cors = require('cors')
 const favicon = require('express-favicon')
 const PORT = process.env.PORT || 4000 
 const bodyParser = require('body-parser')
@@ -8,6 +9,7 @@ const bcrypt = require('bcrypt')
 const prefix = 'https://cors-anywhere.herokuapp.com/'
 require('dotenv').config()
 
+app.use(cors())
 let users = []
 
 // app.use(favicon(__dirname + '/build/favicon.png')); 
@@ -17,14 +19,14 @@ let users = []
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
-
+if (process.env.NODE_ENV === 'production') {
     // Serve any static files
-app.use(express.static(path.join(__dirname, 'build')));
+    app.use(express.static(path.join(__dirname, 'build')));
     // Handle React routing, return all requests to React app
-app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
+    app.get('*', function(req, res) {
+      res.sendFile(path.join(__dirname, 'build', 'index.html'));
+    });
+  }
 
   
 app.get('/czech', (req, res) => {
