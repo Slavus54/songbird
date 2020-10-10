@@ -36,13 +36,13 @@ const MainBird = ({data}) => {
     }, [count])
 
     const onSignUp = async () => {
-        await axios.post('/signup', {data: {name: nameFirst, email, password: passwordFirst}})
+        await axios.post('https://backend-songenbirden.herokuapp.com/signup', {data: {name: nameFirst, email, password: passwordFirst}})
         setSign(true)
     }
 
     const onSignIn = async () => {
         if (isSign === true) {
-            await axios.post('/signin', {data: {name: nameSecond, password: passwordSecond}})
+            await axios.post('https://backend-songenbirden.herokuapp.com/signin', {data: {name: nameSecond, password: passwordSecond}})
             if (nameFirst === nameSecond && passwordFirst === passwordSecond) {
                 alert('Great')
             }
